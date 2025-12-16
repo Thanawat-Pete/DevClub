@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 require_once 'config/database.php';
 
 // Handle Delete Request (Still needed for fallback, but SweetAlert travels to this url via JS)
@@ -110,6 +115,10 @@ try {
           <div style="font-size: 0.8rem; opacity: 0.8; font-weight: 400;">DevClub Membership System</div>
       </div>
     </a>
+    <div class="ms-auto d-flex align-items-center">
+        <span class="text-white me-3 d-none d-md-block">สวัสดี, <?= htmlspecialchars($_SESSION['user_name']) ?></span>
+        <a href="logout.php" class="btn btn-outline-light btn-sm">ออกจากระบบ</a>
+    </div>
   </div>
 </nav>
 
