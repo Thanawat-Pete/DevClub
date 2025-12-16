@@ -101,6 +101,18 @@ try {
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.php">
+      <img src="logo.png" alt="NPRU Logo" width="40" height="auto" class="d-inline-block align-text-top me-3 bg-white rounded-circle p-1">
+      <div>
+          <div style="line-height: 1; font-size: 1.1rem;">Nakhon Pathom Rajabhat University</div>
+          <div style="font-size: 0.8rem; opacity: 0.8; font-weight: 400;">DevClub Membership System</div>
+      </div>
+    </a>
+  </div>
+</nav>
+
 <div class="container main-container">
     <div class="row align-items-center mb-4">
         <div class="col-md-6">
@@ -187,6 +199,12 @@ try {
         </div>
     </div>
 </div>
+
+<footer class="text-center py-4 mt-5 text-muted" style="border-top: 1px solid #e5e7eb; font-size: 0.9rem;">
+    <div class="container">
+        © Software Engineering, NPRU. All rights reserved.
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>

@@ -54,7 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; display: flex; align-items: center; min-height: 100vh; }
+        body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; min-height: 100vh; }
+        .form-card { margin-top: 50px; margin-bottom: 50px; }
         .form-card { 
             background: white; 
             border-radius: 20px; 
@@ -86,6 +87,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-4">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.php">
+      <img src="logo.png" alt="NPRU Logo" width="40" height="auto" class="d-inline-block align-text-top me-3 bg-white rounded-circle p-1">
+      <span style="font-family: 'Sarabun'; font-weight: 700;">NPRU DevClub</span>
+    </a>
+  </div>
+</nav>
+
 <div class="container">
     <div class="form-card">
         <div class="card-header">
@@ -114,13 +124,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="Computer Science" <?= (isset($major) && $major == 'Computer Science') ? 'selected' : '' ?>>Computer Science (CS)</option>
                         <option value="Information Technology" <?= (isset($major) && $major == 'Information Technology') ? 'selected' : '' ?>>Information Technology (IT)</option>
                         <option value="Software Engineering" <?= (isset($major) && $major == 'Software Engineering') ? 'selected' : '' ?>>Software Engineering (SE)</option>
+                        <option value="Multimedia Technology" <?= (isset($major) && $major == 'Multimedia Technology') ? 'selected' : '' ?>>Multimedia Technology (MT)</option>
+                        <option value="Artificial Intelligence" <?= (isset($major) && $major == 'Artificial Intelligence') ? 'selected' : '' ?>>Artificial Intelligence (AI)</option>
                         <option value="Other" <?= (isset($major) && $major == 'Other') ? 'selected' : '' ?>>อื่นๆ</option>
                     </select>
                     <label for="major">สาขาวิชา</label>
                 </div>
 
                 <div class="form-floating mb-4">
-                    <input type="number" name="academic_year" class="form-control" id="year" placeholder="2567" value="<?= isset($academic_year) ? htmlspecialchars($academic_year) : '' ?>" required>
+                    <select class="form-select" name="academic_year" id="year" required>
+                        <option value="" disabled <?= !isset($academic_year) ? 'selected' : '' ?>>เลือกปีการศึกษา...</option>
+                        <?php 
+                        $current_year = date("Y") + 543;
+                        for($i = $current_year + 1; $i >= $current_year - 4; $i--): 
+                        ?>
+                            <option value="<?= $i ?>" <?= (isset($academic_year) && $academic_year == $i) ? 'selected' : '' ?>><?= $i ?></option>
+                        <?php endfor; ?>
+                    </select>
                     <label for="year">ปีการศึกษา (พ.ศ.)</label>
                 </div>
                 
@@ -130,6 +150,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </div>
+
+<footer class="text-center py-4 mt-auto text-muted" style="border-top: 1px solid #e5e7eb; font-size: 0.9rem;">
+    <div class="container">
+        © Software Engineering, NPRU. All rights reserved.
+    </div>
+</footer>
 
 </body>
 </html>
