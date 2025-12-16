@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="auth-card">
     <div class="auth-header">
         <img src="logo.png" width="60" class="mb-3 bg-white rounded-circle p-1">
-        <h4 style="font-family: 'Outfit', sans-serif; font-weight: 700;">Admin Login</h4>
+        <h4 style="font-family: 'Outfit', sans-serif; font-weight: 700;"> Login</h4>
         <p class="mb-0 opacity-75">เข้าสู่ระบบจัดการข้อมูลชมรม</p>
     </div>
     <div class="auth-body">
